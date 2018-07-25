@@ -16,6 +16,7 @@ node {
       git 'https://github.com/ImBeeMaster/demo.git'
       sh "echo GIT_COMMIT"
       sh "echo GIT_BRANCH"
+
       // Get the Maven tool.
       // ** NOTE: This 'M3' Maven tool must be configured
       // **       in the global configuration.           
