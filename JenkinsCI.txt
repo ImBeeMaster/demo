@@ -34,7 +34,7 @@ node {
       } else {
          bat(/"${mvnHome}\bin\mvn" -Dmaven.test.failure.ignore clean package/)
       }
-        sh "rm -rf ${env.WORKSPACE}/target/*.jar"
-        server.upload(uploadSpec) // upload to registry
+      server.upload(uploadSpec) // upload to registry
+      sh "rm -rf ${env.WORKSPACE}/target/*.jar"
       }
 }
