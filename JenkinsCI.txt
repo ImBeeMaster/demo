@@ -22,9 +22,19 @@ node {
    stage('Build') {
       // Run the maven build
       if (isUnix()) {
+<<<<<<< HEAD
 
          sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean package -Dv=${env.GIT_COMMIT} -Db=${env.GIT_BRANCH}"
 
+=======
+<<<<<<< HEAD
+         sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean package -Dv=${git_commit} -Db=${GIT_BRANCH}"
+=======
+
+         sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean package -Dv=${env.GIT_COMMIT} -Db=${env.GIT_BRANCH}"
+
+>>>>>>> Dev
+>>>>>>> 45ff35a16bb50cc082977a19e56fb704a7b16e47
       } else {
          bat(/"${mvnHome}\bin\mvn" -Dmaven.test.failure.ignore clean package/)
       }
