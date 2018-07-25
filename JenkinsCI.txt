@@ -14,6 +14,8 @@ node {
       stage('Preparation') { // for display purposes
       // Get some code from a GitHub repository
       git 'https://github.com/ImBeeMaster/demo.git'
+      env.GIT_COMMIT = sh(script: "git rev-parse HEAD", returnStdout: true).trim()
+      echo env.GIT_COMMIT
       sh "echo ${GIT_COMMIT}"
       sh "echo ${GIT_BRANCH}"
 
