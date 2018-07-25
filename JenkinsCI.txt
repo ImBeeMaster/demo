@@ -1,6 +1,7 @@
 node {
    def server = Artifactory.server('Local')
    def mvnHome
+   def git_commit = env.GIT_COMMIT
    def uploadSpec = """{
   "files": [
     {
@@ -21,7 +22,7 @@ node {
    stage('Build') {
       // Run the maven build
       if (isUnix()) {
-         sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean package -Dv=${GIT_COMMIT} -Db=${GIT_BRANCH}"
+         sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean package -Dv=${env.GIT_COMMIT} -Db=${env.GIT_BRANCH}"
       } else {
          bat(/"${mvnHome}\bin\mvn" -Dmaven.test.failure.ignore clean package/)
       }
