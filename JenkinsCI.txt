@@ -1,8 +1,8 @@
 node {
    def server = Artifactory.server('Local')
    def mvnHome
-   def GIT_COMMIT
-   def GIT_BRANCH
+   def env.GIT_COMMIT
+   def env.GIT_BRANCH
    def uploadSpec = """{
   "files": [
     {
@@ -14,8 +14,8 @@ node {
       stage('Preparation') { // for display purposes
       // Get some code from a GitHub repository
       git 'https://github.com/ImBeeMaster/demo.git'
-      sh "echo GIT_COMMIT"
-      sh "echo GIT_BRANCH"
+      sh "echo ${GIT_COMMIT}"
+      sh "echo ${GIT_BRANCH}"
 
       // Get the Maven tool.
       // ** NOTE: This 'M3' Maven tool must be configured
