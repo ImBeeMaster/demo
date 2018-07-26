@@ -2,7 +2,7 @@ node {
    def server = Artifactory.server('Local')
    def mvnHome
    def commitHash = checkout(scm).GIT_COMMIT.substring(0,8)
-   shortCommit = commitHash.substring(0,8)
+   def commitBranch = checkout(scm).GIT_BRANCH
    def uploadSpec = """{
   "files": [
     {
@@ -15,6 +15,7 @@ node {
       // Get some code from a GitHub repository
       git 'https://github.com/ImBeeMaster/demo.git'
       sh "echo this is: ${commitHash}"
+      sh "echo this is: ${commitBranch}"
 
       // Get the Maven tool.
       // ** NOTE: This 'M3' Maven tool must be configured
