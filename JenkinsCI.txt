@@ -26,8 +26,8 @@ node {
    stage('Build') {
       // Run the maven build
       if (isUnix()) {
-         echo "Build happens here"
-        // sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean package -Dv=${env.GIT_COMMIT} -Db=${env.GIT_BRANCH}"
+         // echo "Build happens here"
+         sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean package -Dv=${commitHash} -Db=${commitBranch}"
 
       } else {
          bat(/"${mvnHome}\bin\mvn" -Dmaven.test.failure.ignore clean package/)
