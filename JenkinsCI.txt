@@ -1,6 +1,7 @@
 node {
    def server = Artifactory.server('Local')
    def mvnHome
+   def commitHash = checkout(scm).GIT_COMMIT
    def uploadSpec = """{
   "files": [
     {
@@ -19,6 +20,7 @@ node {
       env.GIT_BRANCH = sh(returnStdout: true, script: 'git rev-parse --abbrev-ref HEAD').trim()
       sh "echo ${GIT_COMMIT}"
       sh "echo ${GIT_BRANCH}"
+      sh "echo this is: ${commitHash}"
       echo env.GIT_COMMIT
 
       // Get the Maven tool.
