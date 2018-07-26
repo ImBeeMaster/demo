@@ -13,6 +13,8 @@ node {
       // Get some code from a GitHub repository
       git 'https://github.com/ImBeeMaster/demo.git'
       env.GIT_COMMIT = sh(script: "git rev-parse HEAD", returnStdout: true).trim().substring(0, 8)
+      shortCommit = sh(returnStdout: true, script: "git log -n 1 --pretty=format:'%h'").trim()
+      echo shortCommit
       echo env.GIT_COMMIT
       env.GIT_BRANCH = sh(returnStdout: true, script: 'git rev-parse --abbrev-ref HEAD').trim()
       sh "echo ${GIT_COMMIT}"
