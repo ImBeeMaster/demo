@@ -1,7 +1,7 @@
 node {
    def server = Artifactory.server('Local')
    def mvnHome
-   def commitHash = checkout(scm).GIT_COMMIT
+   def commitHash = checkout(scm).GIT_COMMIT.substring(0,8)
    shortCommit = commitHash.substring(0,8)
    def uploadSpec = """{
   "files": [
@@ -14,7 +14,7 @@ node {
       stage('Preparation') { // for display purposes
       // Get some code from a GitHub repository
       git 'https://github.com/ImBeeMaster/demo.git'
-      sh "echo "this is: ${commitHash}""
+      sh "echo this is: ${commitHash}"
 
       // Get the Maven tool.
       // ** NOTE: This 'M3' Maven tool must be configured
