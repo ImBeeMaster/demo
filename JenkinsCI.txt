@@ -20,7 +20,11 @@ node {
       env.GIT_BRANCH = sh(returnStdout: true, script: 'git rev-parse --abbrev-ref HEAD').trim()
       sh "echo ${GIT_COMMIT}"
       sh "echo ${GIT_BRANCH}"
+<<<<<<< HEAD
       sh "echo this is: ${commitHash}"
+=======
+      sh "echo ${commitHash}"
+>>>>>>> dae46e0cc125602f79bf415946f9b5aa4a41c608
       echo env.GIT_COMMIT
 
       // Get the Maven tool.
