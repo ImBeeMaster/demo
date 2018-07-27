@@ -14,6 +14,7 @@ node {
       stage('Preparation') { // for display purposes
       // Get some code from a GitHub repository
       checkout scm
+      // comment 
       sh "echo this is: ${commitHash}"
       sh "echo this is: ${commitBranch}"
 
