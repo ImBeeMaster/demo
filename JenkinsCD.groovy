@@ -19,7 +19,7 @@ properties([
 
 
 stage('Preparation') {
-    sh("rm -rf ${env.WORKSPACE}/target/.jar")
+    sh("rm -rf ${env.WORKSPACE}/*.jar")
     server.download(downloadSpec)
 }
 
