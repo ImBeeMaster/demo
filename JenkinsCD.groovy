@@ -4,7 +4,7 @@ node {
      "files": [
        {
           "pattern": "libs-release-local/demo-${Commit_hash}-${Env_name}-SNAPSHOT.jar",
-          "target": "."
+          "target": "./"
         }
      ]
     }""" 
