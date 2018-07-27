@@ -25,24 +25,20 @@ stage('Preparation') {
 
 stage('Download ansible configs') { 
 
- git branch: 'build', url: 'https://github.com/ImBeeMaster/demo.git'
+ git branch: 'deploy', url: 'https://github.com/ImBeeMaster/demo.git'
 
 }
 
  stage('Docker build and push to registry') {
  docker.withRegistry('http://registry.local:5000') {
- def DockerImage = docker.build("java-${Env_name}")
+ def DockerImage = docker.build("java-custom")
         DockerImage.push()
   }
  }
 
    stage('Deploy') {
-
                 ansiblePlaybook(
-
-                    playbook: 'playbook_dev.yml')
-
-//                   inventory: 'hosts.txt',)
-
+                    playbook: 'deploy.yml',
+                    extras: "-e Env='${Env_name}'")
    }
 }

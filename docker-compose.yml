@@ -1,0 +1,4 @@
+web:
+    image: docker-hub.local:5000/java-custom:latest
+    ports:
+     - "8080:8080"

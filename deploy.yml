@@ -1,0 +1,21 @@
+
+- hosts: "{{ Env }}"
+  become: yes
+  tasks:
+    - name: Copying Dockerfile
+      copy:
+        src: /vagrant/Dockerfile
+        dest: Dockerfile
+        mode: 0644
+
+    # - name: Copying docker-compose.yml
+    #   copy:
+    #     src: /vagrant/docker-compose.yml
+    #     dest: docker-compose.yml
+    #     mode: 0644
+
+    - name: Stop docker-compose
+      shell: "docker-compose down"
+
+    - name: Run docker-compose
+      shell: "docker-compose up -d"
