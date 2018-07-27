@@ -41,7 +41,7 @@ stage('Download ansible configs') {
    stage('Deploy') {
                 ansiblePlaybook(
                     playbook: 'deploy.yml',
-                    extras: "-e Env='${Env_name}'"
+                    extras: "-e Env='${Env_name}'",
                     inventory: "./hosts" )
    }
 }
