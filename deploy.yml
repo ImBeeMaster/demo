@@ -2,11 +2,11 @@
 - hosts: "{{ Env }}"
   become: yes
   tasks:
-    - name: Copying Dockerfile
-      copy:
-        src: /vagrant/Dockerfile
-        dest: Dockerfile
-        mode: 0644
+    # - name: Copying Dockerfile
+    #   copy:
+    #     src: /vagrant/Dockerfile
+    #     dest: Dockerfile
+    #     mode: 0644
 
     # - name: Copying docker-compose.yml
     #   copy:
