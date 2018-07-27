@@ -30,6 +30,7 @@ stage('Download ansible configs') {
 }
 
  stage('Docker build and push to registry') {
+ sh('ls -la .')
  docker.withRegistry('http://registry.local:5000') {
  def DockerImage = docker.build("java-custom")
         DockerImage.push()
