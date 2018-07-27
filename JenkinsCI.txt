@@ -2,7 +2,7 @@ node {
    def server = Artifactory.server('Local')
    def mvnHome
    def commitHash = checkout(scm).GIT_COMMIT.substring(0,8)
-   def commitBranch = checkout(scm).GIT_BRANCH.replace('origin/','')
+   // def commitBranch = checkout(scm).GIT_BRANCH.replace('origin/','')
    def uploadSpec = """{
   "files": [
     {
@@ -13,7 +13,8 @@ node {
 }"""
       stage('Preparation') { // for display purposes
       // Get some code from a GitHub repository
-      checkout scm
+     git branch: 'Dev', url: 'git@github.com:https://github.com/ImBeeMaster/demo.git'
+     // checkout scm
       // comment 
       sh "echo this is: ${commitHash}"
       sh "echo this is: ${commitBranch}"
