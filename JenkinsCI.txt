@@ -13,7 +13,7 @@ node {
 }"""
       stage('Preparation') { // for display purposes
       // Get some code from a GitHub repository
-     git branch: 'Dev', url: 'git@github.com:https://github.com/ImBeeMaster/demo.git'
+     git branch: 'Dev', url: 'https://github.com/ImBeeMaster/demo.git'
      // checkout scm
       // comment 
       sh "echo this is: ${commitHash}"
