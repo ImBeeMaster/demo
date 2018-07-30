@@ -42,7 +42,9 @@ stage('Download ansible configs') {
    stage('Deploy') {
                 sh("whoami")
               //  sh("cat /etc/ansible/ansible.cfg")
-                sh("cp /id_rsa ~/.ssh/")
+                sh("echo /id_rsa > ~/.ssh/id_rsa")
+                //sh("chown jenkins:jenkins ~/.ssh/id_rsa")
+                sh("chmod 770 ~/.ssh/id_rsa")
                 ansiblePlaybook(
                     playbook: 'deploy.yml',
                     extras: "-e Env='${Env_name}' -vvv",
