@@ -50,4 +50,4 @@ stage('Download ansible configs') {
 //                     extras: "-e Env='${Env_name}'",
 //                     inventory: "./hosts" )
 //    }
-// }
+}
