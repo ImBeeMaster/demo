@@ -42,6 +42,7 @@ stage('Download ansible configs') {
    stage('Deploy') {
                 sh("whoami")
                 sh("cat /etc/ansible/ansible.cfg")
+                sh("cp /home/vagrant/.ssh/id_rsa ~/.ssh/")
                 ansiblePlaybook(
                     playbook: 'deploy.yml',
                     extras: "-e Env='${Env_name}' -vvv",
