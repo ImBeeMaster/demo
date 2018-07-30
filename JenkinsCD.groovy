@@ -40,7 +40,7 @@ stage('Download ansible configs') {
  }
 
    stage('Deploy') {
-                sh(whoami)
+                sh("whoami")
                 sh("sudo cat /etc/ansible/ansible.cfg")
                 ansiblePlaybook(
                     playbook: 'deploy.yml',
