@@ -47,7 +47,7 @@ stage('Download ansible configs') {
                 sh("chmod 700 ~/.ssh/id_rsa")
                 ansiblePlaybook(
                     playbook: 'deploy.yml',
-                    extras: "-e Env='${Env_name}' -vvvv",
+                    extras: "-e Env='${Env_name}'",
                     inventory: "./hosts" )
    }
 }
