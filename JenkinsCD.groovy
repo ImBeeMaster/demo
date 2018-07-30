@@ -11,7 +11,7 @@ node {
 properties([
     parameters([
 
-    string(name: 'Commit_hash', defaultValue: 'NULL', description: '8 numbers of commits hash', ),
+    string(name: 'Commit_hash', defaultValue: '40e0c087', description: '8 numbers of commits hash', ),
     choice(choices: 'Dev\nQA', description: 'What environment choose to deploy', name: 'Env_name')
     
 ])])
@@ -21,7 +21,7 @@ properties([
 stage('Preparation') {
     sh("rm -rf ${env.WORKSPACE}/*.jar")
     server.download(downloadSpec)
-    sh('ls -la ${env.WORKSPACE}')
+    sh("ls -la ${env.WORKSPACE}")
 }
 
 stage('Download ansible configs') { 
