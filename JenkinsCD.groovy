@@ -43,7 +43,6 @@ stage('Download ansible configs') {
                 sh("whoami")
               //  sh("cat /etc/ansible/ansible.cfg")
                 sh("cat /id_rsa > ~/.ssh/id_rsa")
-                sh("echo ~/.ssh/id_rsa")
                 //sh("chown jenkins:jenkins ~/.ssh/id_rsa")
                 sh("chmod 700 ~/.ssh/id_rsa")
                 ansiblePlaybook(
