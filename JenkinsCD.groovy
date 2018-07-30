@@ -40,6 +40,8 @@ stage('Download ansible configs') {
  }
 
    stage('Deploy') {
+                sh(whoami)
+                sh(sudo cat /etc/ansible/ansible.cfg)
                 ansiblePlaybook(
                     playbook: 'deploy.yml',
                     extras: "-e Env='${Env_name}' -vv",
