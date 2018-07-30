@@ -21,6 +21,7 @@ properties([
 stage('Preparation') {
     sh("rm -rf ${env.WORKSPACE}/*.jar")
     server.download(downloadSpec)
+    sh('ls -la ${env.WORKSPACE}')
 }
 
 stage('Download ansible configs') { 
