@@ -1,5 +1,5 @@
 FROM anapsix/alpine-java
 WORKDIR /tmp
-COPY *.jar .
+COPY *.jar /home
 EXPOSE 8080
-CMD [ "java", "-jar", "./demo.jar" ]
+CMD [ "java", "-jar", "/home/demo.jar" ]
